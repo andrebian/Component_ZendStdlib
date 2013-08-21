@@ -9,20 +9,14 @@
 
 namespace Zend\Stdlib\Hydrator;
 
-interface HydratorAwareInterface
+interface HydrationInterface
 {
     /**
-     * Set hydrator
+     * Hydrate $object with the provided $data.
      *
-     * @param  HydratorInterface $hydrator
-     * @return HydratorAwareInterface
+     * @param  array $data
+     * @param  object $object
+     * @return object
      */
-    public function setHydrator(HydratorInterface $hydrator);
-
-    /**
-     * Retrieve hydrator
-     *
-     * @return HydratorInterface
-     */
-    public function getHydrator();
+    public function hydrate(array $data, $object);
 }
