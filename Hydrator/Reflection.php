@@ -36,7 +36,7 @@ class Reflection extends AbstractHydrator
             }
 
             $value = $property->getValue($object);
-            $result[$propertyName] = $this->extractValue($propertyName, $value);
+            $result[$propertyName] = $this->extractValue($propertyName, $value, $object);
         }
 
         return $result;
@@ -54,7 +54,7 @@ class Reflection extends AbstractHydrator
         $reflProperties = self::getReflProperties($object);
         foreach ($data as $key => $value) {
             if (isset($reflProperties[$key])) {
-                $reflProperties[$key]->setValue($object, $this->hydrateValue($key, $value));
+                $reflProperties[$key]->setValue($object, $this->hydrateValue($key, $value, $data));
             }
         }
         return $object;
@@ -78,8 +78,9 @@ class Reflection extends AbstractHydrator
         }
 
         if (!isset(static::$reflProperties[$input])) {
-            $reflClass      = new ReflectionClass($input);
-            $reflProperties = $reflClass->getProperties();
+            static::$reflProperties[$input] = array();
+            $reflClass                      = new ReflectionClass($input);
+            $reflProperties                 = $reflClass->getProperties();
 
             foreach ($reflProperties as $property) {
                 $property->setAccessible(true);
