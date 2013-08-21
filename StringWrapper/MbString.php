@@ -96,7 +96,7 @@ class MbString extends AbstractStringWrapper
      * Convert a string from defined encoding to the defined convert encoding
      *
      * @param string  $str
-     * @param bool $reverse
+     * @param boolean $reverse
      * @return string|false
      */
     public function convert($str, $reverse = false)

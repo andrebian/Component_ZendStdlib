@@ -24,9 +24,10 @@ abstract class PhpLegacyCompatibility extends PhpArrayObject
     /**
      * Constructor
      *
-     * @param array  $input
-     * @param int    $flags
-     * @param string $iteratorClass
+     * @param  array       $input
+     * @param  int         $flags
+     * @param  string      $iteratorClass
+     * @return ArrayObject
      */
     public function __construct($input = array(), $flags = self::STD_PROP_LIST, $iteratorClass = 'ArrayIterator')
     {
