@@ -18,7 +18,8 @@
     "require-dev": {
         "zendframework/zend-eventmanager": "self.version",
         "zendframework/zend-serializer": "self.version",
-        "zendframework/zend-servicemanager": "self.version"
+        "zendframework/zend-servicemanager": "self.version",
+        "zendframework/zend-filter": "self.version"
     },
     "suggest": {
         "zendframework/zend-eventmanager": "To support aggregate hydrator usage",
